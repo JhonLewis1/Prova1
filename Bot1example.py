@@ -22,5 +22,8 @@ async def on_message(message):
         
     if message.content.startswith('!Hello'):
         await message.channel.send("Hello, " + message.author.name + " !")
+        with open("logifle.txt", "a") as o:
+            o.write('Hello')
+            o.write('This text will be added to the file')
 
 client.run("OTY0Mjg0Njc2NjI3OTAyNTA0.YliaFg.aHByYM4Nhlz5KxUrF3xwfkr6oCw")
