@@ -3,7 +3,7 @@ import requests
 import json
 
 def get_quote ():
-    response = request.get("https://zenquotes.io/api/random")
+    response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     words = json_data[0]['q']
     author = json_data[0]['a']
@@ -34,8 +34,8 @@ async def on_message(message):
         await message.channel.send("Hello, " + message.author.name + " !")
         
         
-    if message.content.startswith('!Inspire'):
+    if message.content.startswith('!Quote'):
         quote = get_quote()
-        await message.chanel.send(quote)
+        await message.channel.send(quote)
 
 client.run("OTY0Mjg0Njc2NjI3OTAyNTA0.YliaFg.aHByYM4Nhlz5KxUrF3xwfkr6oCw")
